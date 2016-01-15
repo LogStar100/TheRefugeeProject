@@ -1,0 +1,15 @@
+html, body {
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+#slideshow {
+	-webkit-filter: blur(2.5px) brightness(0.9);
+	-moz-filter: blur(2.5px) brightness(0.9);
+	-o-filter: blur(2.5px) brightness(0.9);
+	-ms-filter: blur(2.5px) brightness(0.9);
+	filter: blur(2.5px) brightness(0.9);
+}
