@@ -11,11 +11,15 @@
 }
 
 html, body {
-	margin: 0;
+	margin: 0!important;
 	width: 100vw;
 	height: 100vh;
-	overflow-y: hidden;
-	overflow-x: hidden;
+	overflow-y: scroll!important;
+	overflow-x: hidden!important;
+}
+
+cite {
+	display: none;
 }
 
 #slideshow {
@@ -26,19 +30,111 @@ html, body {
 	filter: blur(2.5px) brightness(0.85);
 }
 
-.header {
+.headerTHE, .headerFINAL, .headerEND {
 	position: absolute;
 	width: 100%;
 	text-align: center;
 	z-index: 50;
-	font-family: Avenir;
-	font-weight: 900;
-	font-size: 6.25em;
 	color: white;
-	top: 25%;
+	font-family: Avenir;
 }
 
-.hvr-border-fade { /* TODO: Change fonts to be for headers and text, instead of same font. */
+.headerTHE {
+	font-weight: 400;
+	font-size: 1em;
+	top: 9%;
+	letter-spacing: 0.3em;
+}
+
+.headerFINAL {
+	font-weight: 900;
+	font-size: 3em;
+	top: 7.5%;
+}
+
+.headerEND {
+	font-weight: 400;
+	font-size: 1em;
+	top: 21%;
+	letter-spacing: 0.35em
+}
+
+.mobile {
+	display: none;
+	position: absolute;
+}
+
+.learnMore {
+	font-family: Avenir;
+	font-weight: 900;
+	left: 5%;
+	top: 35vh;
+}
+
+.faqHeader {
+	color: #ff6873;
+	text-transform: uppercase;
+  	font-weight: 900;
+  	font-family: Avenir;
+  	position: absolute;
+  	z-index: 100;
+  	top: 190vh;
+  	left: 5%;
+  	right: 5%;
+}
+
+.synopsis {
+	position: absolute;
+	color: black;
+	font-family: Avenir;
+	font-weight: 400;
+	top: 44%;
+	left: 5%;
+	right: 5%;
+}
+
+.supportButton {
+	height: 50px;
+	width: 175px;
+	font-family: Avenir;
+	font-weight: 400;
+	border: 2px solid #ff6873;
+	position: absolute;
+	display: block;
+	color: black;
+ 	text-align: center;
+ 	font-size: 25px;
+ 	line-height: 50px;
+ 	border-radius: 15px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	top: 170vh;
+ 	left: 17.5%;
+}
+
+a.supportButton {
+	text-decoration: none;
+}
+
+.firstFAQ {
+	position: absolute;
+	top: 120vh;
+	z-index: 100;
+	left: 5%;
+	right: 5%;
+}
+
+@media (max-width: 420px) {
+	.hvr-border-fade, .hvr-border-fade p, .hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
+		display: none;
+	}
+
+	.mobile {
+		display: block;
+	}
+} 
+
+/* .hvr-border-fade { 
 	position: absolute;
 	display: inline-block;
 	vertical-align: middle;
@@ -53,7 +149,6 @@ html, body {
 	-webkit-transition-property: box-shadow;
 	transition-property: box-shadow;
 	box-shadow: inset 0 0 0 4px transparent, 0 0 1px rgba(0, 0, 0, 0);
-	/* Hack to improve aliasing on mobile/tablet devices */
 	z-index: 53;
 	top: 45%;
 	width: 300px;
@@ -62,9 +157,9 @@ html, body {
 	margin: 0 auto;
 	left: 50%;
 	transform: translateX(-50%);
-}
+} */
 
-.hvr-border-fade p {
+/*.hvr-border-fade p {
 	font-family: Avenir;
 	font-weight: 400;
 	text-decoration: none;
@@ -76,9 +171,173 @@ html, body {
 	position: absolute;
 	text-align: center;
 	left: 10px;
+} */
+
+/*.hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
+ 	box-shadow: inset 0 0 0 4px #ffffff, 0 0 1px rgba(0, 0, 0, 0);
+} */
+
+/* START FAQ HERE */
+.transition, p, ul li i:before, ul li i:after {
+	transition: all 0.25s ease-in-out;
 }
 
-.hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
- 	box-shadow: inset 0 0 0 4px #ffffff, 0 0 1px rgba(0, 0, 0, 0);
- 	/* Hack to improve aliasing on mobile/tablet devices */
+.flipIn, h1, ul li {
+	animation: flipdown 0.5s ease both;
+}
+
+.no-select, h2 {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media (max-width: 550px) {
+	body {
+		box-sizing: border-box;
+		transform: translate(0, 0);
+		max-width: 100%;
+		min-height: 100%;
+		margin: 0;
+		left: 0;
+	}
+}
+
+h2 {
+	font-size: 1.25em;
+	line-height: 34px;
+	font-weight: 300;
+	display: block;
+	background-color: #fefffa;
+	margin: 0;
+	cursor: pointer;
+	font-family: Avenir;
+	font-weight: 900;
+}
+
+.accordionText {
+	color: rgba(48, 69, 92, 0.8);
+	font-size: 17px;
+	line-height: 26px;
+	position: relative;
+	overflow: scroll;
+	max-height: 800px;
+	opacity: 1;
+	transform: translate(0, 0);
+	margin-top: 14px;
+	z-index: 2;
+	font-family: Avenir;
+	font-weight: 400;
+}
+
+.faqUL {
+	list-style: none;
+	perspective: 900;
+	padding: 0;
+	margin: 0;
+	max-width: 90%;
+}
+.faqUL li {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	padding-bottom: 4px;
+	padding-top: 18px;
+	border-top: 1px dotted #dce7eb;
+}
+.faqUL li:nth-of-type(1) {
+	animation-delay: 0.5s;
+}
+.faqUL li:nth-of-type(2) {
+	animation-delay: 0.75s;
+}
+.faqUL li:nth-of-type(3) {
+	animation-delay: 1s;
+}
+
+.faqUL li:nth-of-type(4) {
+	animation-delay: 1.25s;
+}
+
+.faqUL li:nth-of-type(5) {
+	animation-delay: 1.5s;
+}
+.faqUL li:nth-of-type(6) {
+	animation-delay: 1.75s;
+}
+.faqUL li:nth-of-type(7) {
+	animation-delay: 2s;
+}
+.faqUL li:nth-of-type(8) {
+	animation-delay: 2.25s;
+}
+.faqUL li:last-of-type {
+	padding-bottom: 0;
+}
+.faqUL li i {
+	position: absolute;
+	transform: translate(-6px, 0);
+	margin-top: 16px;
+	right: 0;
+}
+.faqUL li i:before, .faqUL li i:after {
+	content: "";
+	position: absolute;
+	background-color: #ff6873;
+	width: 3px;
+	height: 9px;
+}
+.faqUL li i:before {
+	transform: translate(-2px, 0) rotate(45deg);
+}
+.faqUL li i:after {
+	transform: translate(2px, 0) rotate(-45deg);
+}
+.faqUL li input[type=checkbox] {
+	position: absolute;
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+}
+.faqUL li input[type=checkbox]:checked ~ p {
+	margin-top: 0;
+	max-height: 0;
+	opacity: 0;
+	transform: translate(0, 50%);
+}
+.faqUL li input[type=checkbox]:checked ~ i:before {
+	transform: translate(2px, 0) rotate(45deg);
+}
+.faqUL li input[type=checkbox]:checked ~ i:after {
+	transform: translate(-2px, 0) rotate(-45deg);
+}
+
+@keyframes flipdown {
+	0% {
+		opacity: 0;
+		transform-origin: top center;
+		transform: rotateX(-90deg);
+	}
+	5% {
+		opacity: 1;
+	}
+	80% {
+		transform: rotateX(8deg);
+	}
+	83% {
+		transform: rotateX(6deg);
+	}
+	92% {
+		transform: rotateX(-3deg);
+	}
+	100% {
+		transform-origin: top center;
+		transform: rotateX(0deg);
+	}
 }
